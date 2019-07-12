@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
-target 'RNFirebaseStarter' do
-  # Pods for RNFirebaseStarter
+target 'twlistas' do
+  # Pods for twlistas
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
@@ -25,13 +25,13 @@ target 'RNFirebaseStarter' do
 
 end
 
-target 'RNFirebaseStarter-tvOS' do
+target 'twlistas-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for RNFirebaseStarter-tvOS
+  # Pods for twlistas-tvOS
 
-  target 'RNFirebaseStarter-tvOSTests' do
+  target 'twlistas-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

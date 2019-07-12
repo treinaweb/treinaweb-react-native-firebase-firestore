@@ -1,4 +1,4 @@
-package com.invertase.rnfirebasestarter;
+package com.treinaweb.twlistas;
 
 import android.support.multidex.MultiDexApplication;
 
