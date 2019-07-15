@@ -15,8 +15,8 @@ export default class App extends React.Component {
 
     
     const response = await collection
-      .where('nome', '==', 'React')
-      .where('preco', '>', 200)
+      .orderBy('preco')
+      .limit(3)
       .get();
       console.log(response)
     response.forEach(doc => console.log(doc.data()));
