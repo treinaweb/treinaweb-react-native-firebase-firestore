@@ -12,36 +12,15 @@ export default class App extends React.Component {
   async componentDidMount() {
     const db = firebase.firestore();
     const collection = db.collection('livros');
-
     
-    const response = await collection
-      .orderBy('nome')
-      .limit(10)
-      .get();
+    const response = await collection.get();
 
     response.forEach(doc => console.log(doc.data()));
 
-    const first = response.docs[0];
-    const last = response.docs[response.docs - 1];
-
-    // startAt
-    // startAfter
-    // endAt
-    // endBefore
-
-    // proxima pagina
-    await collection
-      .orderBy('nome')
-      .startAfter(last)      
-      .limit(10)
-      .get();
-
-    // pagina anterior
-    await collection
-      .orderBy('nome')
-      .endBefore(first)      
-      .limit(10)
-      .get();
+    collection.add({
+      nome: 'Vue',
+      preco: 22
+    })
 
   }
 
