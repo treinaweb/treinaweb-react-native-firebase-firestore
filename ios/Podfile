@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
-target 'twlistas' do
-  # Pods for twlistas
+target 'meuapp' do
+  # Pods for meuapp
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
@@ -25,13 +25,13 @@ target 'twlistas' do
 
 end
 
-target 'twlistas-tvOS' do
+target 'meuapp-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for twlistas-tvOS
+  # Pods for meuapp-tvOS
 
-  target 'twlistas-tvOSTests' do
+  target 'meuapp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

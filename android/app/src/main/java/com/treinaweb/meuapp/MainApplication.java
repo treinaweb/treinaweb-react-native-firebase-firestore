@@ -1,4 +1,4 @@
-package com.treinaweb.twlistas;
+package com.treinaweb.meuapp;
 
 import android.support.multidex.MultiDexApplication;
 
