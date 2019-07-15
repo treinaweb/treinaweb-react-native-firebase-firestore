@@ -13,7 +13,12 @@ export default class App extends React.Component {
     const db = firebase.firestore();
     const collection = db.collection('livros');
 
-    const response = await collection.where('preco', '>', 26).get();
+    
+    const response = await collection
+      .where('nome', '==', 'React')
+      .where('preco', '>', 200)
+      .get();
+      console.log(response)
     response.forEach(doc => console.log(doc.data()));
 
   }
