@@ -17,11 +17,10 @@ export default class App extends React.Component {
 
     response.forEach(doc => console.log(doc.data()));
 
-    collection.add({
-      nome: 'Vue',
-      preco: 22
+    response.docs[0].ref.update({
+      preco: 23
     })
-
+    
   }
 
   render() {
