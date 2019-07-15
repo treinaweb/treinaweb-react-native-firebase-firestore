@@ -6,22 +6,26 @@ import firebase from 'react-native-firebase';
 export default class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      list: []
+    };
   }
 
   async componentDidMount() {
     const db = firebase.firestore();
     const collection = db.collection('livros');
     
-    const response = await collection.get();
-
-    response.forEach(doc => console.log(doc.data()));
-
-    //response.docs[0].ref.delete()
-    
+    const unsubscribe = collection.onSnapshot((querySnapshot) => {
+      const list = [];
+      querySnapshot.forEach(doc => {
+        list.push(doc.data());
+      })
+      this.setState({list});
+    });
   }
 
   render() {
+    const {state} = this;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -29,9 +33,9 @@ export default class App extends React.Component {
           <Text style={styles.welcome}>
             Welcome to {'\n'} React Native Firebase
           </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
+          {
+            state.list.map(item => <Text>{item.nome}</Text>)
+          }
         </View>
       </ScrollView>
     );
