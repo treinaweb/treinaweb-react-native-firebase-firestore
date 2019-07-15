@@ -13,10 +13,9 @@ export default class App extends React.Component {
     const db = firebase.firestore();
     const collection = db.collection('livros');
 
-    const querySnapshot = await collection.get();
-    const docs =  querySnapshot.docs;
-
-    querySnapshot.forEach(doc => console.log(doc.data()));
+    const docReference = collection.doc("Sait3Zq5zZ6NlLNhNsSs");
+    const doc = await docReference.get();
+    console.log(doc.data());
 
   }
 
