@@ -15,11 +15,33 @@ export default class App extends React.Component {
 
     
     const response = await collection
-      .orderBy('preco')
-      .limit(3)
+      .orderBy('nome')
+      .limit(10)
       .get();
-      console.log(response)
+
     response.forEach(doc => console.log(doc.data()));
+
+    const first = response.docs[0];
+    const last = response.docs[response.docs - 1];
+
+    // startAt
+    // startAfter
+    // endAt
+    // endBefore
+
+    // proxima pagina
+    await collection
+      .orderBy('nome')
+      .startAfter(last)      
+      .limit(10)
+      .get();
+
+    // pagina anterior
+    await collection
+      .orderBy('nome')
+      .endBefore(first)      
+      .limit(10)
+      .get();
 
   }
 
