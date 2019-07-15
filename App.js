@@ -17,9 +17,7 @@ export default class App extends React.Component {
 
     response.forEach(doc => console.log(doc.data()));
 
-    response.docs[0].ref.update({
-      preco: 23
-    })
+    //response.docs[0].ref.delete()
     
   }
 
