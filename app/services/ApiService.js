@@ -14,18 +14,20 @@ export class DataStore{
         return this.formatList(querySnapshot);
     }
     async create(item){
-        const doc = await this.store.create(item);
-        await this.push();
-        return doc;
-    }
-    async update(doc){
-        const newDoc = await this.store.update(doc.id, doc.rev, doc.body);
-        await this.push();
+        const newItem = await this.collection.add({body: item});
+        const doc = await newItem.get();
+        const newDoc = {...doc.data(), id: doc.id};
         return newDoc;
     }
+    async update(doc){
+        const {id} = doc;
+        delete doc.id;
+
+        await this.collection.doc(id).update(doc);
+        return {id, ...doc};
+    }
     async remove(id){
-        await this.store.delete(id);
-        await this.push();
+        await this.collection.doc(id).delete();
         return id;
     }
 }
