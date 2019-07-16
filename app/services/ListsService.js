@@ -1,5 +1,4 @@
-//import {DataStore} from './ApiService';
-//const dbName = 'twlistas';
+import {DataStore} from './ApiService';
+const collectionName = 'Lists';
 
-//export const ListsService = new DataStore(dbName);
-export const ListsService = {};
+export const ListsService = new DataStore(collectionName);

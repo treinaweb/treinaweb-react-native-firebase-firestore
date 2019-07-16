@@ -1,12 +1,17 @@
+import firebase from 'react-native-firebase';
+
+const db = firebase.firestore();
 
 export class DataStore{
-    constructor(dbName){
-        
+    constructor(collectionName){
+        this.collection = db.collection(collectionName);
+    }
+    formatList(querySnapshot){
+        return querySnapshot.docs.map(doc => ({...doc.data(), id: doc.id}));
     }
     async list(){
-        await this.pull();
-        const docs = await this.store.find({});
-        return docs;
+        const querySnapshot = await this.collection.get();
+        return this.formatList(querySnapshot);
     }
     async create(item){
         const doc = await this.store.create(item);

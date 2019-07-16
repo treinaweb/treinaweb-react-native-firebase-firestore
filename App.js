@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   async componentDidMount(){
-    
+    this.getLists();
   }
 
   getLists = async () => {
