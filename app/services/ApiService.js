@@ -13,6 +13,11 @@ export class DataStore{
         const querySnapshot = await this.collection.get();
         return this.formatList(querySnapshot);
     }
+    watch(callback){
+        return this.collection.onSnapshot((querySnapshot) => {
+            callback(this.formatList(querySnapshot));
+        });
+    }
     async create(item){
         const newItem = await this.collection.add({body: item});
         const doc = await newItem.get();

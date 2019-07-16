@@ -14,7 +14,10 @@ export default class App extends Component {
   }
 
   async componentDidMount(){
-    this.getLists();
+    //this.getLists();
+    ListsService.watch((lists) => {
+      this.setState({lists});
+    })
   }
 
   getLists = async () => {
